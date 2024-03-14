@@ -80,59 +80,43 @@ equals.onclick = function () { onEquals() };
 
 function onDivide() {
     console.log("onDivide called");
-    old_value = curr_value;
+    old_value = computeTillNow();
     update_screen(0);
     divide_clicked = true;
 }
 
 function onAdd() {
     console.log("onAdd called");
-    old_value = curr_value;
+    old_value = computeTillNow();
     update_screen(0);
     add_clicked = true;
 }
 
 function onSubtract() {
     console.log("onSubtract called");
-    old_value = curr_value;
+    old_value = computeTillNow();
     update_screen(0);
     subtract_clicked = true;
 }
 
 function onMultiply() {
     console.log("onMultiply called");
-    old_value = curr_value;
+    old_value = computeTillNow();
     update_screen(0);
     multiply_clicked = true;
 }
 
 function onModulus() {
     console.log("onModulus called");
-    old_value = curr_value;
+    old_value = computeTillNow();
     update_screen(0);
     modulus_clicked = true;
 }
 
 function onEquals() {
     console.log("onEquals called");
-    let new_value = curr_value;
-    if (divide_clicked) {
-        new_value = old_value / curr_value;
-    }
-    else if (add_clicked) {
-        new_value = old_value + curr_value;
-    }
-    else if (subtract_clicked) {
-        new_value = old_value - curr_value;
-    }
-    else if (multiply_clicked) {
-        new_value = old_value * curr_value;
-    }
-    else if (modulus_clicked) {
-        new_value = old_value % curr_value;
-    }
+    let new_value = computeTillNow();
     update_screen(new_value);
-    resetClickedVariables();
     old_value = 0;
 }
 
@@ -162,4 +146,26 @@ function resetCalculator() {
 function resetCurrent() {
     console.log("resetCurrent called");
     update_screen(0);
+}
+
+//Stores the value after current operations
+function computeTillNow(){
+    let calculated_value = curr_value;
+    if (divide_clicked) {
+        calculated_value = old_value / curr_value;
+    }
+    else if (add_clicked) {
+        calculated_value = old_value + curr_value;
+    }
+    else if (subtract_clicked) {
+        calculated_value = old_value - curr_value;
+    }
+    else if (multiply_clicked) {
+        calculated_value = old_value * curr_value;
+    }
+    else if (modulus_clicked) {
+        calculated_value = old_value % curr_value;
+    }
+    resetClickedVariables();
+    return calculated_value;
 }
