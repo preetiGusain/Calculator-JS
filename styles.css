@@ -76,8 +76,9 @@ td {
     }
     .round_button{
         height: 80%;
+        font-size: larger;
     }
     #screen_text{
-        font-size: larger;
+        font-size: x-large;
     }
 }
