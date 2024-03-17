@@ -26,6 +26,7 @@ body{
 
 #screen_text{
     width: 100%;
+    height: 100%;
 }
 
 #button_box {
@@ -58,4 +59,24 @@ td {
 
 .calc_operation {
     background-color: honeydew;
+}
+
+/*Small screens like mobile*/
+@media (max-width: 600px) {
+    #box{
+        width: 80%;
+        height: 90%;
+    }
+    #button_box{
+        height: 70%;
+    }
+    table{
+        height: 100%;
+    }
+    .round_button{
+        height: 80%;
+    }
+    #screen_text{
+        font-size: larger;
+    }
 }
